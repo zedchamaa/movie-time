@@ -1,0 +1,38 @@
+@import "./normalize.css";
+:root {
+  --color-primary: #10141e;
+  --color-primary-lighter: #161d2f;
+  --color-secondary: #5a698f;
+  --color-accent: #fc4747;
+  --color-headings: #fff;
+  --color-body: #fff;
+}
+
+*, *::after, *::before {
+  box-sizing: border-box;
+  margin: 0;
+	padding: 0;
+}
+
+/* TODO: typography is not completed yet, continue from here */
+/* Typography */
+
+::selection {
+  background: var(--color-primary);
+  color: var(--color-body);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+img {
+  width: 100%;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  line-height: 1.5;
+  font-size: 1.5rem;
+  color: var(--color-body);
+}
