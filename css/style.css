@@ -152,25 +152,58 @@ h4 {
 /* Navigation Bar */
 
 .nav {
+  align-items: center;
   background-color: var(--color-primary-lighter);
   display: flex;
   height: 5.6rem;
   justify-content: space-between;
-  width: 37.5rem;
-}
-
-.nav__brand img {
-  width: 2.5rem;
-  height: 2rem;
+  padding: 2rem;
+  width: 100vw;
 }
 
 .nav__list {
+  cursor: pointer;
   display: flex;
-  width: 13.354rem;
   height: 1.6rem;
+  justify-content: space-between;
+  width: 13.354rem;
 }
 
 .nav__avatar {
+  border-radius: 100%;
+  border: 2px solid var(--color-body);
+  box-sizing: border-box;
+  display: block;
+}
+
+.nav__avatar img {
   width: 2.4rem;
   height: 2.4rem;
+}
+
+@media screen and (min-width:768px) {
+  .nav {
+    height: 7.2rem;
+  }
+  .nav__list {
+    width: 17.292rem;
+    height: 2rem;
+  }
+}
+
+@media screen and (min-width:1024px) {
+  .nav {
+    border-radius: 20px;
+    flex-direction: column;
+    height: 93vh;
+    margin-left: 3rem;
+    margin-top: 3rem;
+    width: 9.6rem;
+  }
+  .nav__list {
+    flex-direction: column;
+    height: 20rem;
+    margin-bottom: 45vh;
+    width: 2rem;
+  }
 }
