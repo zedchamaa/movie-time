@@ -30,6 +30,7 @@ img {
 }
 
 body {
+  background-color: var(--color-primary);
   color: var(--color-body);
   font-family: 'Outfit', sans-serif;
   font-size: 1.5rem;
@@ -80,5 +81,64 @@ h4 {
 
   body {
     font-size: 1.3rem;
+  }
+}
+
+/* Icons */
+
+.icon {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.icon--brand {
+  width: 2.5rem;
+  height: 2rem;
+}
+
+.icon--navigation {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.icon--avatar {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.icon--small {
+  width: 1rem;
+  height: 1rem;
+}
+
+.icon-bookmark {
+  width: 3.2rem;
+  height: 3.2rem;
+}
+
+@media screen and (min-width:1024px) {
+  .icon {
+    width: 3.2rem;
+    height: 3.2rem;
+  }
+  
+  .icon--brand {
+    width: 3.2rem;
+    height: 2.56rem;
+  }
+  
+  .icon--navigation {
+    width: 2rem;
+    height: 2rem;
+  }
+  
+  .icon--avatar {
+    width: 4rem;
+    height: 4rem;
+  }
+  
+  .icon--small {
+    width: 1.2rem;
+    height: 1.2rem;
   }
 }
