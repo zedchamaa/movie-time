@@ -14,7 +14,6 @@
 	padding: 0;
 }
 
-/* TODO: typography is not completed yet, continue from here */
 /* Typography */
 
 ::selection {
@@ -31,8 +30,55 @@ img {
 }
 
 body {
-  font-family: 'Outfit', sans-serif;
-  line-height: 1.5;
-  font-size: 1.5rem;
   color: var(--color-body);
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+h1, h2 {
+  font-weight: 300;
+}
+
+h3, h4 {
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.6rem;
+}
+
+h3 {
+  font-size: 1.4rem;
+}
+
+h4 {
+  font-size: 1.8rem;
+}
+
+@media screen and (min-width: 1024px) {
+  h1 {
+    font-size: 3.2rem;
+  }
+  
+  h2 {
+    font-size: 2.4rem;
+  }
+  
+  h3 {
+    font-size: 1.8rem;
+  }
+  
+  h4 {
+    font-size: 1.3rem;
+  }
+
+  body {
+    font-size: 1.3rem;
+  }
 }
