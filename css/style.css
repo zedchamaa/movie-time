@@ -142,3 +142,9 @@ h4 {
     height: 1.2rem;
   }
 }
+
+/* Lists */
+
+.list {
+  list-style: none;
+}
