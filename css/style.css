@@ -158,6 +158,18 @@ h4 {
   width: 16.4rem;
 }
 
+@media screen and (min-width: 768px) {
+  .list--inner {
+    width: 22.2rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .list--inner {
+    width: 28rem;
+  }
+}
+
 /* Navigation Bar */
 
 .nav {
