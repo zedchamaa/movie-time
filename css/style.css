@@ -150,12 +150,12 @@ h4 {
 }
 
 .list--inner {
-  display: flex;
-  width: 16.4rem;
-  height: 1.4rem;
   align-items: center;
-  justify-content: flex-start;
+  display: flex;
   gap: 0.6rem;
+  height: 1.4rem;
+  justify-content: flex-start;
+  width: 16.4rem;
 }
 
 /* Navigation Bar */
