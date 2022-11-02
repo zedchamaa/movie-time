@@ -156,6 +156,7 @@ h4 {
   gap: 0.6rem;
   height: 1.4rem;
   justify-content: flex-start;
+  margin-bottom: 0.3rem;
   width: 16.4rem;
 }
 
@@ -255,8 +256,9 @@ h4 {
 /* Thumbnails */
 
 .thumbnail {
-  width: 16.4rem;
   height: 11rem;
+  margin-bottom: 0.8rem;
+  width: 16.4rem;
 }
 
 .thumbnail img {
@@ -295,4 +297,25 @@ h4 {
   background-image: url(/assets/icon-bookmark-full.svg);
   background-position: center;
   background-repeat: no-repeat;
+}
+
+/* Media Cards */
+
+.media-card-general {
+  width: 16.4rem;
+  height: 15.4rem;
+}
+
+@media screen and (min-width: 768px) {
+  .media-card-general {
+    width: 22rem;
+    height: 19.2rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .media-card-general {
+    width: 28rem;
+    height: 22.6rem;
+  }
 }
