@@ -229,6 +229,27 @@ h4 {
   }
 }
 
+/* Thumbnails */
+
+.thumbnail {
+  width: 16.4rem;
+  height: 11rem;
+}
+
+@media screen and (min-width: 768px) {
+  .thumbnail {
+    width: 22rem;
+    height: 14rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .thumbnail {
+    width: 28rem;
+    height: 17.4rem;
+  }
+}
+
 /* Grids */
 
 .grid {
