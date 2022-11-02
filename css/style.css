@@ -213,6 +213,9 @@ h4 {
     width: 17.292rem;
     height: 2rem;
   }
+  .nav__avatar {
+    margin-right: 0.2rem;
+  }
 }
 
 @media screen and (min-width:1024px) {
