@@ -6,6 +6,7 @@
   --color-accent: #fc4747;
   --color-headings: #fff;
   --color-body: #fff;
+  --color-badge: #10141E;
 }
 
 *, *::after, *::before {
@@ -229,27 +230,6 @@ h4 {
   }
 }
 
-/* Thumbnails */
-
-.thumbnail {
-  width: 16.4rem;
-  height: 11rem;
-}
-
-@media screen and (min-width: 768px) {
-  .thumbnail {
-    width: 22rem;
-    height: 14rem;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .thumbnail {
-    width: 28rem;
-    height: 17.4rem;
-  }
-}
-
 /* Grids */
 
 .grid {
@@ -270,4 +250,49 @@ h4 {
   .grid--1x4 {
     grid-template-columns: repeat(4, 1fr);
   }
+}
+
+/* Thumbnails */
+
+.thumbnail {
+  width: 16.4rem;
+  height: 11rem;
+}
+
+.thumbnail img {
+  border-radius: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .thumbnail {
+    width: 22rem;
+    height: 14rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .thumbnail {
+    width: 28rem;
+    height: 17.4rem;
+  }
+}
+
+/* Bookmark Badges */
+
+.badge {
+  background-color: var(--color-badge);
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.badge__bookmark-empty {
+  background-image: url(/assets/icon-bookmark-empty.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.badge__bookmark-full {
+  background-image: url(/assets/icon-bookmark-full.svg);
+  background-position: center;
+  background-repeat: no-repeat;
 }
