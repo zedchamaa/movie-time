@@ -284,7 +284,10 @@ h4 {
 .badge {
   background-color: var(--color-badge);
   border-radius: 50%;
+  bottom: 10rem;
+  left: 12.5rem;
   opacity: 0.5;
+  position: relative;
 }
 
 .badge__bookmark-empty {
@@ -297,6 +300,20 @@ h4 {
   background-image: url(/assets/icon-bookmark-full.svg);
   background-position: center;
   background-repeat: no-repeat;
+}
+
+@media screen and (min-width: 768px) {
+  .badge {
+    left: 17rem;
+    bottom: 13rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .badge {
+    left: 22rem;
+    bottom: 16rem;
+  }
 }
 
 /* Media Cards */
