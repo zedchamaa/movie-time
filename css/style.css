@@ -403,7 +403,7 @@ h4 {
 @media screen and (min-width: 768px) {
   .search-bar {
     height: 3.2rem;
-    margin-top: 3.5rem;
+    margin-top: 3rem;
     width: 38.6rem;
   }
   .search-bar input {
@@ -416,6 +416,7 @@ h4 {
 @media screen and (min-width: 1024px) {
   .search-bar {
     grid-area: main-one;
+    margin-top: 3.5rem;
     padding-left: 0;
   }
 }
