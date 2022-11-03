@@ -21,39 +21,31 @@
   <title>Movie Time by ZED CHAMAA</title>
 </head>
 <body>
-  <nav class="nav">
-    <a class="icon--brand" href="/"><img src="/assets/logo.svg" alt="movie time logo"></a>
-    <ul class="list nav__list icon--navigation">
-      <li><a href="/index.html"><img src="/assets/icon-nav-home.svg" alt="home page"></a></li>
-      <li><a href="/movies.html"><img src="/assets/icon-nav-movies.svg" alt="movies"></a></li>
-      <li><a href="/tv-series.html"><img src="/assets/icon-nav-tv-series.svg" alt="tv series"></a></li>
-      <li><a href="/bookmarked.html"><img src="/assets/icon-nav-bookmark.svg" alt="bookmarked"></a></li>
-    </ul>
-    <div class="nav__avatar">
-      <img src="/assets/image-avatar.png" alt="avatar">
-    </div>
-  </nav>
-  
-  <h1>Recommended for you</h1>
-  
-  <div class="grid grid--1x2 grid--1x3 grid--1x4">
-      <div class="media-card-general">
-      <div class="thumbnail">
-        <img src="/assets/thumbnails/dogs/regular/small.jpg" alt="" />
-        <div class="badge icon-bookmark badge__bookmark-empty"></div>
-      </div>
-      <ul class="list list--inner">
-        <li>2019</li>
-        <li>&middot;</li>
-        <li>
-          <img class="icon--small" src="/assets/icon-category-movie.svg" alt="" />
-          Movie
-        </li>
-        <li>&middot;</li>
-        <li>E</li>
+  <div class="main-container">
+    <nav class="nav">
+      <a class="icon--brand" href="/"><img src="/assets/logo.svg" alt="movie time logo"></a>
+      <ul class="list nav__list icon--navigation">
+        <li><a href="/index.html"><img src="/assets/icon-nav-home.svg" alt="home page"></a></li>
+        <li><a href="/movies.html"><img src="/assets/icon-nav-movies.svg" alt="movies"></a></li>
+        <li><a href="/tv-series.html"><img src="/assets/icon-nav-tv-series.svg" alt="tv series"></a></li>
+        <li><a href="/bookmarked.html"><img src="/assets/icon-nav-bookmark.svg" alt="bookmarked"></a></li>
       </ul>
-      <h3>The Great Lands</h3>
+      <div class="nav__avatar">
+        <img src="/assets/image-avatar.png" alt="avatar">
       </div>
+    </nav>
+    
+    <div class="search-bar">
+      <img class="icon" src="/assets/icon-search.svg">
+      <input type=“text” minlength=“3” maxlength=“100” placeholder="Search for movies or TV series" />
+    </div>
+    <h1 class="trending-title">Trending</h1>
+    <h1 class="recommended-title">Recommended for you</h1>
+    
+    <!-- Media items are generated below automatically from main.js -->
+    <div class="grid grid--1x2 grid--1x3 grid--1x4 recommended">
+    
+    </div>
   </div>
 </body>
 </html>
