@@ -222,6 +222,7 @@ h4 {
   .nav {
     border-radius: 20px;
     flex-direction: column;
+    grid-area: sidebar;
     height: 93vh;
     margin-left: 3rem;
     margin-top: 3rem;
@@ -235,12 +236,31 @@ h4 {
   }
 }
 
+/* Main Container */
+
+@media screen and (min-width: 1024px) {
+  .main-container {
+    display: grid;
+    grid-template: 1fr 1fr 2fr 1fr 2fr / 0.5fr 4fr;
+    grid-template-areas: 
+      "sidebar main-one"
+      "sidebar main-two"
+      "sidebar main-three"
+      "sidebar main-four"
+      "sidebar main-five";
+    height: 100vh;
+    gap: 4rem;
+    width: 100vw;
+  }
+}
+
 /* Grids */
 
 .grid {
   display: grid;
   gap: 1.5rem;
-  justify-items: center;
+  justify-items: left;
+  width: 100vw;
 }
 
 .grid--1x2 {
@@ -254,8 +274,14 @@ h4 {
 }
 
 @media screen and (min-width: 1024px) {
+  .grid {
+    width: 90vw;
+  }
   .grid--1x4 {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, auto);
+  }
+  .recommended {
+    grid-area: main-five;
   }
 }
 
@@ -337,5 +363,16 @@ h4 {
 @media screen and (min-width: 1024px) {
   .media-card-general {
     width: 28rem;
+  }
+}
+
+/* Miscellaneous */
+
+@media screen and (min-width: 1024px) {
+  .recommended-title {
+    grid-area: main-four;
+  }
+  .trending-title {
+    grid-area: main-two;
   }
 }
