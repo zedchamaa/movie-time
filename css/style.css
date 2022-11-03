@@ -238,9 +238,15 @@ h4 {
 
 /* Main Container */
 
+.main-container {
+  height: 100vh;
+  width: 100vw;
+}
+
 @media screen and (min-width: 1024px) {
   .main-container {
     display: grid;
+    gap: 4rem;
     grid-template: 1fr 1fr 2fr 1fr 2fr / 0.5fr 4fr;
     grid-template-areas: 
       "sidebar main-one"
@@ -248,9 +254,6 @@ h4 {
       "sidebar main-three"
       "sidebar main-four"
       "sidebar main-five";
-    height: 100vh;
-    gap: 4rem;
-    width: 100vw;
   }
 }
 
@@ -265,11 +268,13 @@ h4 {
 
 .grid--1x2 {
   grid-template-columns: repeat(2, 1fr);
+  padding-left: 2rem;
 }
 
 @media screen and (min-width: 768px) {
   .grid--1x3 {
     grid-template-columns: repeat(3, 1fr);
+    padding-left: 2rem;
   }
 }
 
@@ -279,6 +284,7 @@ h4 {
   }
   .grid--1x4 {
     grid-template-columns: repeat(4, auto);
+    padding-left: 0;
   }
   .recommended {
     grid-area: main-five;
@@ -373,6 +379,7 @@ h4 {
   display: flex;
   height: 2.4rem;
   margin-top: 3rem;
+  padding-left: 2rem;
   padding-top: 2rem;
   width: 25.7rem;
 }
@@ -409,16 +416,26 @@ h4 {
 @media screen and (min-width: 1024px) {
   .search-bar {
     grid-area: main-one;
+    padding-left: 0;
   }
 }
 
 /* Miscellaneous */
 
+.trending-title {
+  padding-left: 2rem;
+}
+.recommended-title {
+  padding-left: 2rem;
+}
+
 @media screen and (min-width: 1024px) {
-  .recommended-title {
-    grid-area: main-four;
-  }
   .trending-title {
     grid-area: main-two;
+    padding-left: 0;
+  }
+  .recommended-title {
+    grid-area: main-four;
+    padding-left: 0;
   }
 }
