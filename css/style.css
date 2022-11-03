@@ -366,6 +366,52 @@ h4 {
   }
 }
 
+/* Search Bar */
+
+.search-bar {
+  align-items: center;
+  display: flex;
+  height: 2.4rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  width: 25.7rem;
+}
+
+.search-bar input {
+  background-color: var(--color-primary);
+  border: none;
+  color: var(--color-headings);
+  font-size: 1.6rem;
+  height: 2rem;
+  margin-left: 1.5rem;
+  width: 21.7rem;
+}
+
+.search-bar input:focus {
+  caret-color: var(--color-accent);
+  color: var(--color-headings);
+  outline: none;
+}
+
+@media screen and (min-width: 768px) {
+  .search-bar {
+    height: 3.2rem;
+    margin-top: 3rem;
+    width: 38.6rem;
+  }
+  .search-bar input {
+    font-size: 2.4rem;
+    height: 2.9rem;
+    width: 33rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .search-bar {
+    grid-area: main-one;
+  }
+}
+
 /* Miscellaneous */
 
 @media screen and (min-width: 1024px) {
