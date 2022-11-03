@@ -7,7 +7,7 @@ http.open('get', 'data/data.json', true);
 
 http.send();
 
-http.onload = function() {
+http.onload = function populateRecommendedItems() {
   if (this.readyState == 4 && this.status == 200) {
     let media = JSON.parse(this.responseText);
     let output = "";
@@ -54,6 +54,6 @@ http.onload = function() {
       </div>
       `;
     }
-    document.querySelector('.grid').innerHTML = output;
+    document.querySelector('.recommended').innerHTML = output;
   }
 }
