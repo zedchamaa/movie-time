@@ -247,7 +247,7 @@ h4 {
   .main-container {
     display: grid;
     gap: 4rem;
-    grid-template: 1fr 1fr 2fr 1fr 2fr / 0.5fr 4fr;
+    grid-template: 1fr 1fr 23rem 1fr 2fr / 0.5fr 4fr;
     grid-template-areas: 
       "sidebar main-one"
       "sidebar main-two"
@@ -303,10 +303,19 @@ h4 {
   border-radius: 10px;
 }
 
+.thumbnail--trending {
+  width: 24rem;
+  height: 14rem;
+}
+
 @media screen and (min-width: 768px) {
   .thumbnail {
     width: 22rem;
     height: 14rem;
+  }
+  .thumbnail--trending {
+    width: 47rem;
+    height: 23rem;
   }
 }
 
@@ -314,6 +323,10 @@ h4 {
   .thumbnail {
     width: 28rem;
     height: 17.4rem;
+  }
+  .thumbnail--trending {
+    width: 47rem;
+    height: 23rem;
   }
 }
 
@@ -356,11 +369,20 @@ h4 {
 
 /* Media Cards */
 
+.media-card-trending {
+  width: 24rem;
+  height: 14rem;
+}
+
 .media-card-general {
   width: 16.4rem;
 }
 
 @media screen and (min-width: 768px) {
+  .media-card-trending {
+    width: 47rem;
+    height: 23rem;
+  }
   .media-card-general {
     width: 22rem;
   }
@@ -422,6 +444,46 @@ h4 {
     grid-area: main-one;
     margin-top: 3.5rem;
     padding-left: 0;
+  }
+}
+
+/* Trending Block */
+
+.media-scroller {
+  display: grid;
+  justify-items: left;
+  gap: 1.5rem;
+  grid-area: main-three;
+  grid-auto-columns: minmax(24rem, 24rem);
+  grid-auto-flow: column;
+  margin-left: 2rem;
+  margin-right: 1rem;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+}
+
+.media-scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.box {
+  width: 24rem;
+  height: 14rem;
+}
+
+@media screen and (min-width: 768px) {
+  .media-scroller {
+    grid-auto-columns: minmax(47rem, 47rem);
+  }
+  .box {
+    width: 47rem;
+    height: 23rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .media-scroller {
+    margin-left: 0;
   }
 }
 
