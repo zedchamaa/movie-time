@@ -161,9 +161,33 @@ h4 {
   width: 16.4rem;
 }
 
+.list--inner-trending {
+  align-items: center;
+  display: flex;
+  gap: 0.6rem;
+  height: 1.4rem;
+  justify-content: flex-start;
+  width: 16.4rem;
+  bottom: 8rem;
+  left: 2rem;
+  position: relative;
+}
+
+.trending-media-title {
+  position: relative;
+  bottom: 8rem;
+  left: 2rem;
+}
+
 @media screen and (min-width: 768px) {
   .list--inner {
     width: 22.2rem;
+  }
+  .trending-media-title {
+    bottom: 6rem;
+  }
+  .list--inner-trending {
+    bottom: 7rem;
   }
 }
 
@@ -335,8 +359,17 @@ h4 {
 .badge {
   background-color: var(--color-badge);
   border-radius: 50%;
-  bottom: 10rem;
+  bottom: 9rem;
   left: 12.5rem;
+  opacity: 0.5;
+  position: relative;
+}
+
+.badge-trending {
+  background-color: var(--color-badge);
+  border-radius: 50%;
+  bottom: 11rem;
+  left: 20rem;
   opacity: 0.5;
   position: relative;
 }
@@ -357,6 +390,10 @@ h4 {
   .badge {
     left: 17rem;
     bottom: 13rem;
+  }
+  .badge-trending {
+    bottom: 21rem;
+    left: 41.5rem;
   }
 }
 
