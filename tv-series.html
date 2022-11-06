@@ -21,5 +21,27 @@
   <title>Search for TV series to watch | Movie Time by ZED CHAMAA</title>
 </head>
 <body>
+  <div class="main-container">
+    <nav class="nav">
+      <a class="icon--brand" href="/"><img src="/assets/logo.svg" alt="movie time logo"></a>
+      <ul class="list nav__list icon--navigation">
+        <li><a href="/index.html"><img src="/assets/icon-nav-home.svg" alt="home page"></a></li>
+        <li><a href="/movies.html"><img src="/assets/icon-nav-movies.svg" alt="movies"></a></li>
+        <li><a href="/tv-series.html"><img src="/assets/icon-nav-tv-series.svg" alt="tv series"></a></li>
+        <li><a href="/bookmarked.html"><img src="/assets/icon-nav-bookmark.svg" alt="bookmarked"></a></li>
+      </ul>
+      <div class="nav__avatar">
+        <img src="/assets/image-avatar.png" alt="avatar">
+      </div>
+    </nav>
+    
+    <div class="search-bar">
+      <img class="icon" src="/assets/icon-search.svg">
+      <input type=“text” minlength=“3” maxlength=“100” placeholder="Search for movies" />
+    </div>
+    <h1 class="recommended-title">TV Series</h1>
+    <!-- TV Series are generated below automatically from tvseries.js -->
+    <div class="grid grid--1x2 grid--1x3 grid--1x4 recommended"></div>
+  </div>
 </body>
 </html>
