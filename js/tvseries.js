@@ -64,5 +64,5 @@ function filterTvSeries(val) {
       `;
     }
   }
-  document.querySelector('.recommended').innerHTML = output;
+  document.querySelector('.tv-series').innerHTML = output;
 }

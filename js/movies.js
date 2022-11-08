@@ -64,5 +64,5 @@ function filterMovies(val) {
       `;
     }
   }
-  document.querySelector('.recommended').innerHTML = output;
+  document.querySelector('.movies').innerHTML = output;
 }

@@ -278,6 +278,7 @@ h4 {
       "sidebar main-three"
       "sidebar main-four"
       "sidebar main-five";
+      grid-auto-rows: min-content;
   }
 }
 
@@ -312,6 +313,12 @@ h4 {
   }
   .recommended {
     grid-area: main-five;
+  }
+  .tv-series {
+    grid-area: main-three;
+  }
+  .movies {
+    grid-area: main-three;
   }
 }
 
@@ -529,17 +536,17 @@ h4 {
 .trending-title {
   padding-left: 2rem;
 }
-.recommended-title {
+.category-title {
   padding-left: 2rem;
 }
 
 @media screen and (min-width: 1024px) {
   .trending-title {
-    grid-area: main-two;
+    display: block;
     padding-left: 0;
   }
-  .recommended-title {
-    grid-area: main-four;
+  .category-title {
     padding-left: 0;
+    display: block;
   }
 }
