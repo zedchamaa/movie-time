@@ -23,7 +23,7 @@ function bookmarkedMovies(val) {
 
   for (let item of val) {
 
-    if (item.category === 'Movie') {
+    if (item.category === 'Movie' && item.isBookmarked) {
       let imageSize;
       let categoryIcon;
       const movieIcon = '/assets/icon-category-movie.svg';
