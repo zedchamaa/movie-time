@@ -271,14 +271,14 @@ h4 {
   .main-container {
     display: grid;
     gap: 4rem;
-    grid-template: 1fr 1fr 23rem 1fr 2fr / 0.5fr 4fr;
+    grid-template: 1fr 1fr auto-fit 1fr auto-fit / 0.5fr 4fr;
     grid-template-areas: 
       "sidebar main-one"
       "sidebar main-two"
       "sidebar main-three"
       "sidebar main-four"
       "sidebar main-five";
-      grid-auto-rows: min-content;
+    grid-auto-rows: min-content;
   }
 }
 
@@ -545,6 +545,12 @@ h4 {
 .category-title {
   padding-left: 2rem;
 }
+.bookmarked-movies-title {
+  padding-left: 2rem;
+}
+.bookmarked-tv-series-title {
+  padding-left: 2rem;
+}
 
 @media screen and (min-width: 1024px) {
   .trending-title {
@@ -552,7 +558,17 @@ h4 {
     padding-left: 0;
   }
   .category-title {
-    padding-left: 0;
     display: block;
+    padding-left: 0;
+  }
+  .bookmarked-movies-title {
+    display: block;
+    grid-area: main-two;
+    padding-left: 0;
+  }
+  .bookmarked-tv-series-title {
+    display: block;
+    grid-area: main-four;
+    padding-left: 0;
   }
 }
