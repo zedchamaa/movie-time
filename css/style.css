@@ -314,11 +314,17 @@ h4 {
   .recommended {
     grid-area: main-five;
   }
+  .movies {
+    grid-area: main-three;
+  }
   .tv-series {
     grid-area: main-three;
   }
-  .movies {
+  .bookmarked-movies {
     grid-area: main-three;
+  }
+  .bookmarked-tv-series {
+    grid-area: main-five;
   }
 }
 
