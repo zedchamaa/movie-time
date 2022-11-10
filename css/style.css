@@ -85,6 +85,12 @@ h4 {
   }
 }
 
+/* Buttons */
+
+button {
+  cursor: pointer;
+}
+
 /* Icons */
 
 .icon {
