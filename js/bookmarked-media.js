@@ -47,7 +47,7 @@ function bookmarkedMovies(val) {
         <div class="media-card-general">
         <div class="thumbnail">
           <img src="${imageSize}" alt="${item.title}" />
-          <div class="badge icon-bookmark badge__bookmark-empty"></div>
+          <button class="badge icon-bookmark badge__bookmark-empty"></button>
         </div>
         <ul class="list list--inner">
           <li>${item.year}</li>
@@ -97,7 +97,7 @@ function bookmarkedTvSeries(val) {
         <div class="media-card-general">
         <div class="thumbnail">
           <img src="${imageSize}" alt="${item.title}" />
-          <div class="badge icon-bookmark badge__bookmark-empty"></div>
+          <button class="badge icon-bookmark badge__bookmark-empty"></button>
         </div>
         <ul class="list list--inner">
           <li>${item.year}</li>
