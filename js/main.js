@@ -91,7 +91,7 @@ function populateTrendingItems(val) {
       <div class="media-card-trending box">
         <div class="thumbnail thumbnail--trending">
           <img src="${imageSize}" alt="${item.title}" />
-          <div class="badge-trending icon-bookmark badge__bookmark-empty"></div>
+          <button class="badge-trending icon-bookmark badge__bookmark-empty"></button>
         </div>
         <ul class="list list--inner-trending">
           <li>${item.year}</li>
@@ -110,4 +110,23 @@ function populateTrendingItems(val) {
     }
   }
   document.querySelector('.media-scroller').innerHTML = output;
+  bookmarkTrendingMedia();
+}
+
+// Create a function to bookmark the trending media
+
+function bookmarkTrendingMedia() {
+
+  document.querySelector(".media-scroller").addEventListener("click", e => {
+    const btn = e.target.closest('button.icon-bookmark');
+    if(!btn) return;
+    // toggle bookmark badge icon
+    btn.classList.toggle('badge__bookmark-full');
+    // change bookmarked status
+
+
+
+  }, {passive: true});
+
+
 }
