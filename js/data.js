@@ -456,4 +456,4 @@ const data = [
   },
 ];
 
-localStorage.setItem("data", JSON.stringify(data));
+window.onload = localStorage.setItem("data", JSON.stringify(data));
