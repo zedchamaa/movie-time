@@ -1,17 +1,9 @@
 /* Strict Mode */
 "use strict";
 
-const url = "./data/data.json";
+const data = JSON.parse(localStorage.getItem("data"));
 
-function getData() {
-  fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      outData(data);
-    });
-}
-
-getData();
+outData(data);
 
 function outData(val) {
   populateRecommendedItems(val);
@@ -127,14 +119,17 @@ function bookmarkTrendingMedia(val) {
 
       // change bookmarked status
       for (let item of val) {
-        // TODO: continue from here, still unable to modify the json file properties
+        // TODO: continue from here
+        // FIXME: when you click on the bookmark icon of any media item in the Trending block, it now saves properly in local storage, however, when you toggle it has no impact on the stored data in local storage. So you need to find a way to fix that.
 
         if (mediaTitle === item.title) {
           if (item.isBookmarked) {
             item.isBookmarked = false;
+            localStorage.setItem("data", JSON.stringify(data));
             console.log(val); // TODO: delete
           } else {
             item.isBookmarked = true;
+            localStorage.setItem("data", JSON.stringify(data));
             console.log(val); // TODO: delete
           }
         }
