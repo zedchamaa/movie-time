@@ -1,17 +1,9 @@
 /* Strict Mode */
 "use strict";
 
-const url = './data/data.json';
+const data = JSON.parse(localStorage.getItem("data"));
 
-function getData() {
-  fetch(url)
-  .then(response => response.json())
-  .then(data => {
-    outData(data);
-  })
-}
-
-getData();
+outData(data);
 
 function outData(val) {
   bookmarkedMovies(val);
@@ -23,26 +15,23 @@ function bookmarkedMovies(val) {
   const windowWidth = window.innerWidth;
 
   for (let item of val) {
-
-    if (item.category === 'Movie' && item.isBookmarked) {
+    if (item.category === "Movie" && item.isBookmarked) {
       let imageSize;
       let categoryIcon;
-      const movieIcon = '/assets/icon-category-movie.svg';
-      const tvSeriesIcon = '/assets/icon-category-tv.svg';
-  
+      const movieIcon = "/assets/icon-category-movie.svg";
+      const tvSeriesIcon = "/assets/icon-category-tv.svg";
+
       if (windowWidth >= 1024) {
         imageSize = item.thumbnail.regular.large;
-      } 
-      else if (windowWidth >= 768) {
+      } else if (windowWidth >= 768) {
         imageSize = item.thumbnail.regular.medium;
-      }
-      else {
+      } else {
         imageSize = item.thumbnail.regular.small;
       }
-  
-      if (item.category === 'Movie') categoryIcon = movieIcon; 
-      if (item.category === 'TV Series') categoryIcon = tvSeriesIcon; 
-  
+
+      if (item.category === "Movie") categoryIcon = movieIcon;
+      if (item.category === "TV Series") categoryIcon = tvSeriesIcon;
+
       output += `
         <div class="media-card-general">
         <div class="thumbnail">
@@ -65,7 +54,7 @@ function bookmarkedMovies(val) {
       `;
     }
   }
-  document.querySelector('.bookmarked-movies').innerHTML = output;
+  document.querySelector(".bookmarked-movies").innerHTML = output;
 }
 
 function bookmarkedTvSeries(val) {
@@ -73,26 +62,23 @@ function bookmarkedTvSeries(val) {
   const windowWidth = window.innerWidth;
 
   for (let item of val) {
-
-    if (item.category === 'TV Series' && item.isBookmarked) {
+    if (item.category === "TV Series" && item.isBookmarked) {
       let imageSize;
       let categoryIcon;
-      const movieIcon = '/assets/icon-category-movie.svg';
-      const tvSeriesIcon = '/assets/icon-category-tv.svg';
-  
+      const movieIcon = "/assets/icon-category-movie.svg";
+      const tvSeriesIcon = "/assets/icon-category-tv.svg";
+
       if (windowWidth >= 1024) {
         imageSize = item.thumbnail.regular.large;
-      } 
-      else if (windowWidth >= 768) {
+      } else if (windowWidth >= 768) {
         imageSize = item.thumbnail.regular.medium;
-      }
-      else {
+      } else {
         imageSize = item.thumbnail.regular.small;
       }
-  
-      if (item.category === 'Movie') categoryIcon = movieIcon; 
-      if (item.category === 'TV Series') categoryIcon = tvSeriesIcon; 
-  
+
+      if (item.category === "Movie") categoryIcon = movieIcon;
+      if (item.category === "TV Series") categoryIcon = tvSeriesIcon;
+
       output += `
         <div class="media-card-general">
         <div class="thumbnail">
@@ -115,5 +101,5 @@ function bookmarkedTvSeries(val) {
       `;
     }
   }
-  document.querySelector('.bookmarked-tv-series').innerHTML = output;
+  document.querySelector(".bookmarked-tv-series").innerHTML = output;
 }

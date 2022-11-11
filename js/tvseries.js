@@ -1,17 +1,9 @@
 /* Strict Mode */
 "use strict";
 
-const url = './data/data.json';
+const data = JSON.parse(localStorage.getItem("data"));
 
-function getData() {
-  fetch(url)
-  .then(response => response.json())
-  .then(data => {
-    outData(data);
-  })
-}
-
-getData();
+outData(data);
 
 function outData(val) {
   filterTvSeries(val);
@@ -22,26 +14,23 @@ function filterTvSeries(val) {
   const windowWidth = window.innerWidth;
 
   for (let item of val) {
-
-    if (item.category === 'TV Series') {
+    if (item.category === "TV Series") {
       let imageSize;
       let categoryIcon;
-      const movieIcon = '/assets/icon-category-movie.svg';
-      const tvSeriesIcon = '/assets/icon-category-tv.svg';
-  
+      const movieIcon = "/assets/icon-category-movie.svg";
+      const tvSeriesIcon = "/assets/icon-category-tv.svg";
+
       if (windowWidth >= 1024) {
         imageSize = item.thumbnail.regular.large;
-      } 
-      else if (windowWidth >= 768) {
+      } else if (windowWidth >= 768) {
         imageSize = item.thumbnail.regular.medium;
-      }
-      else {
+      } else {
         imageSize = item.thumbnail.regular.small;
       }
-  
-      if (item.category === 'Movie') categoryIcon = movieIcon; 
-      if (item.category === 'TV Series') categoryIcon = tvSeriesIcon; 
-  
+
+      if (item.category === "Movie") categoryIcon = movieIcon;
+      if (item.category === "TV Series") categoryIcon = tvSeriesIcon;
+
       output += `
         <div class="media-card-general">
         <div class="thumbnail">
@@ -64,5 +53,5 @@ function filterTvSeries(val) {
       `;
     }
   }
-  document.querySelector('.tv-series').innerHTML = output;
+  document.querySelector(".tv-series").innerHTML = output;
 }
