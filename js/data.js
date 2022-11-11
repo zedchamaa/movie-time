@@ -456,8 +456,9 @@ const media = [
   },
 ];
 
-window.onload = saveMediaInLocalStorage();
-
-function saveMediaInLocalStorage() {
-  window.localStorage.setItem("media", JSON.stringify(media));
-}
+window.onload = function saveMediaInLocalStorage() {
+  if (localStorage.getItem("hasCodeRunBefore") === null) {
+    localStorage.setItem("media", JSON.stringify(media));
+    localStorage.setItem("hasCodeRunBefore", true);
+  }
+};
