@@ -1,9 +1,42 @@
 /* Strict Mode */
 "use strict";
 
-const data = JSON.parse(localStorage.getItem("media"));
+//FIXME:
 
-outData(data);
+window.onload = initData();
+
+function initData() {
+  let data = [];
+  const localStorageData = localStorage.getItem("media");
+
+  if (!localStorageData) {
+    // fetch media data from json
+    const url = "./data/data.json";
+    fetch(url)
+      .then((response) => response.json())
+      .then((jsonData) => {
+        saveToLocalStorage(jsonData);
+      });
+    // save to local storage
+    function saveToLocalStorage(jsonData) {
+      localStorage.setItem("media", JSON.stringify(jsonData));
+      saveToDataArray();
+    }
+    // save to data array
+    function saveToDataArray() {
+      data = localStorageData;
+    }
+  } else {
+    try {
+      data = JSON.parse(localStorageData);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  console.log(data); // TODO: delete
+  outData(data);
+}
 
 function outData(val) {
   populateRecommendedItems(val);
@@ -111,6 +144,8 @@ function bookmarkTrendingMedia(val) {
       const btn = e.target.closest("button.icon-bookmark");
       if (!btn) return;
       // toggle bookmark badge icon
+
+      // TODO: delete the code below?
       btn.classList.toggle("badge__bookmark-full");
 
       // find which media item was clicked
@@ -119,16 +154,15 @@ function bookmarkTrendingMedia(val) {
 
       // change bookmarked status
       for (let item of val) {
-        // TODO: continue from here
-        // FIXME: when you click on the bookmark icon of any media item in the Trending block, it now saves properly in local storage, however, when you toggle it has no impact on the stored data in local storage. So you need to find a way to fix that.
-
         if (mediaTitle === item.title) {
           if (item.isBookmarked) {
             item.isBookmarked = false;
-            localStorage.setItem("media", JSON.stringify(data));
+            localStorage.setItem("media", JSON.stringify(val));
+            console.log(val);
           } else {
             item.isBookmarked = true;
-            localStorage.setItem("media", JSON.stringify(data));
+            localStorage.setItem("media", JSON.stringify(val));
+            console.log(val);
           }
         }
       }
