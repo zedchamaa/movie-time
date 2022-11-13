@@ -1,7 +1,7 @@
 /* Strict Mode */
 "use strict";
 
-const data = JSON.parse(localStorage.getItem("data"));
+const data = JSON.parse(localStorage.getItem("media"));
 
 outData(data);
 
