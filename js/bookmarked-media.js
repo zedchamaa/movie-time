@@ -72,8 +72,12 @@ function bookmarkedTvSeries(val) {
     if (item.category === "TV Series" && item.isBookmarked) {
       let imageSize;
       let categoryIcon;
+      let bookmarkedRule;
       const movieIcon = "/assets/icon-category-movie.svg";
       const tvSeriesIcon = "/assets/icon-category-tv.svg";
+
+      const bookmarked = "badge__bookmark-full";
+      const notBookmarked = "badge__bookmark-empty";
 
       if (windowWidth >= 1024) {
         imageSize = item.thumbnail.regular.large;
@@ -86,11 +90,14 @@ function bookmarkedTvSeries(val) {
       if (item.category === "Movie") categoryIcon = movieIcon;
       if (item.category === "TV Series") categoryIcon = tvSeriesIcon;
 
+      if (item.isBookmarked) bookmarkedRule = bookmarked;
+      if (!item.isBookmarked) bookmarkedRule = notBookmarked;
+
       output += `
         <div class="media-card-general">
         <div class="thumbnail">
           <img src="${imageSize}" alt="${item.title}" />
-          <button class="badge icon-bookmark badge__bookmark-empty"></button>
+          <button class="badge icon-bookmark ${bookmarkedRule}"></button>
         </div>
         <ul class="list list--inner">
           <li>${item.year}</li>
