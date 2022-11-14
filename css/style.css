@@ -6,13 +6,15 @@
   --color-accent: #fc4747;
   --color-headings: #fff;
   --color-body: #fff;
-  --color-badge: #10141E;
+  --color-badge: #10141e;
 }
 
-*, *::after, *::before {
+*,
+*::after,
+*::before {
   box-sizing: border-box;
   margin: 0;
-	padding: 0;
+  padding: 0;
 }
 
 /* Typography */
@@ -33,17 +35,19 @@ img {
 body {
   background-color: var(--color-primary);
   color: var(--color-body);
-  font-family: 'Outfit', sans-serif;
+  font-family: "Outfit", sans-serif;
   font-size: 1.5rem;
   font-weight: 300;
   line-height: 1.5;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-weight: 300;
 }
 
-h3, h4 {
+h3,
+h4 {
   font-weight: 500;
 }
 
@@ -67,15 +71,15 @@ h4 {
   h1 {
     font-size: 3.2rem;
   }
-  
+
   h2 {
     font-size: 2.4rem;
   }
-  
+
   h3 {
     font-size: 1.8rem;
   }
-  
+
   h4 {
     font-size: 1.3rem;
   }
@@ -123,27 +127,27 @@ button {
   height: 3.2rem;
 }
 
-@media screen and (min-width:1024px) {
+@media screen and (min-width: 1024px) {
   .icon {
     width: 3.2rem;
     height: 3.2rem;
   }
-  
+
   .icon--brand {
     width: 3.2rem;
     height: 2.56rem;
   }
-  
+
   .icon--navigation {
     width: 2rem;
     height: 2rem;
   }
-  
+
   .icon--avatar {
     width: 4rem;
     height: 4rem;
   }
-  
+
   .icon--small {
     width: 1.2rem;
     height: 1.2rem;
@@ -235,7 +239,7 @@ button {
   height: 2.4rem;
 }
 
-@media screen and (min-width:768px) {
+@media screen and (min-width: 768px) {
   .nav {
     height: 7.2rem;
   }
@@ -248,7 +252,7 @@ button {
   }
 }
 
-@media screen and (min-width:1024px) {
+@media screen and (min-width: 1024px) {
   .nav {
     border-radius: 20px;
     flex-direction: column;
@@ -278,7 +282,7 @@ button {
     display: grid;
     gap: 4rem;
     grid-template: 1fr 1fr auto-fit 1fr auto-fit / 0.5fr 4fr;
-    grid-template-areas: 
+    grid-template-areas:
       "sidebar main-one"
       "sidebar main-two"
       "sidebar main-three"
@@ -556,6 +560,10 @@ button {
 }
 .bookmarked-tv-series-title {
   padding-left: 2rem;
+}
+
+.hide {
+  display: none;
 }
 
 @media screen and (min-width: 1024px) {
