@@ -96,8 +96,12 @@ function populateTrendingItems(val) {
     if (item.isTrending) {
       let imageSize;
       let categoryIcon;
+      let bookmarkedRule;
       const movieIcon = "/assets/icon-category-movie.svg";
       const tvSeriesIcon = "/assets/icon-category-tv.svg";
+
+      const bookmarked = "badge__bookmark-full";
+      const notBookmarked = "badge__bookmark-empty";
 
       if (windowWidth >= 1024) {
         imageSize = item.thumbnail.trending.large;
@@ -108,12 +112,15 @@ function populateTrendingItems(val) {
       if (item.category === "Movie") categoryIcon = movieIcon;
       if (item.category === "TV Series") categoryIcon = tvSeriesIcon;
 
+      if (item.isBookmarked) bookmarkedRule = bookmarked;
+      if (!item.isBookmarked) bookmarkedRule = notBookmarked;
+
       output += `
       <div class="box">
       <div class="media-card-trending box">
         <div class="thumbnail thumbnail--trending">
           <img src="${imageSize}" alt="${item.title}" />
-          <button class="badge-trending icon-bookmark badge__bookmark-empty"></button>
+          <button class="badge-trending icon-bookmark ${bookmarkedRule}"></button>
         </div>
         <ul class="list list--inner-trending">
           <li>${item.year}</li>
