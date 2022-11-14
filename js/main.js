@@ -34,7 +34,6 @@ function initData() {
     }
   }
 
-  console.log(data); // TODO: delete
   outData(data);
 }
 
@@ -143,10 +142,6 @@ function bookmarkTrendingMedia(val) {
     (e) => {
       const btn = e.target.closest("button.icon-bookmark");
       if (!btn) return;
-      // toggle bookmark badge icon
-
-      // TODO: delete the code below?
-      btn.classList.toggle("badge__bookmark-full");
 
       // find which media item was clicked
       const mediaTitleParent = btn.parentNode.parentNode;
@@ -155,14 +150,16 @@ function bookmarkTrendingMedia(val) {
       // change bookmarked status
       for (let item of val) {
         if (mediaTitle === item.title) {
-          if (item.isBookmarked) {
-            item.isBookmarked = false;
-            localStorage.setItem("media", JSON.stringify(val));
-            console.log(val);
-          } else {
+          if (!item.isBookmarked) {
+            btn.classList.remove("badge__bookmark-empty");
+            btn.classList.add("badge__bookmark-full");
             item.isBookmarked = true;
             localStorage.setItem("media", JSON.stringify(val));
-            console.log(val);
+          } else if (item.isBookmarked) {
+            btn.classList.remove("badge__bookmark-full");
+            btn.classList.add("badge__bookmark-empty");
+            item.isBookmarked = false;
+            localStorage.setItem("media", JSON.stringify(val));
           }
         }
       }
