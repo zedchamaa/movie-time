@@ -8,6 +8,7 @@ outData(data);
 function outData(val) {
   bookmarkedMovies(val);
   bookmarkedTvSeries(val);
+  removeBookmark(val);
 }
 
 function bookmarkedMovies(val) {
@@ -116,4 +117,33 @@ function bookmarkedTvSeries(val) {
     }
   }
   document.querySelector(".bookmarked-tv-series").innerHTML = output;
+}
+
+// Change bookmark status of the clicked media item and remove it
+
+function removeBookmark(val) {
+  document.querySelector(".bookmarked-movies").addEventListener(
+    "click",
+    (e) => {
+      const btn = e.target.closest("button.icon-bookmark");
+      if (!btn) return;
+
+      // find which media item was clicked
+      const mediaTitleParent = btn.parentNode.parentNode;
+      const mediaTitle = mediaTitleParent.children[2].textContent;
+
+      // change bookmarked status
+      for (let item of val) {
+        if (mediaTitle === item.title) {
+          if (item.isBookmarked) {
+            btn.classList.remove("badge__bookmark-full");
+            btn.classList.add("badge__bookmark-empty");
+            item.isBookmarked = false;
+            localStorage.setItem("media", JSON.stringify(val));
+          }
+        }
+      }
+    },
+    { passive: true }
+  );
 }
