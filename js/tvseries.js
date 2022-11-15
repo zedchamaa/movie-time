@@ -7,7 +7,7 @@ outData(data);
 
 function outData(val) {
   filterTvSeries(val);
-  bookmarkMedia(val);
+  bookmarkMedia(val, ".tv-series");
 }
 
 function filterTvSeries(val) {
@@ -64,8 +64,8 @@ function filterTvSeries(val) {
   document.querySelector(".tv-series").innerHTML = output;
 }
 
-function bookmarkMedia(val) {
-  document.querySelector(".tv-series").addEventListener(
+function bookmarkMedia(val, className) {
+  document.querySelector(className).addEventListener(
     "click",
     (e) => {
       const btn = e.target.closest("button.icon-bookmark");
