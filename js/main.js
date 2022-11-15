@@ -40,8 +40,8 @@ function initData() {
 function outData(val) {
   populateRecommendedItems(val);
   populateTrendingItems(val);
-  bookmarkTrendingMedia(val);
-  bookmarkRecommendedMedia(val);
+  bookmarkMedia(val, ".media-scroller");
+  bookmarkMedia(val, ".recommended");
 }
 
 function populateRecommendedItems(val) {
@@ -149,44 +149,10 @@ function populateTrendingItems(val) {
   document.querySelector(".media-scroller").innerHTML = output;
 }
 
-// Create a function to bookmark the trending media
+// Bookmark media items
 
-function bookmarkTrendingMedia(val) {
-  document.querySelector(".media-scroller").addEventListener(
-    "click",
-    (e) => {
-      const btn = e.target.closest("button.icon-bookmark");
-      if (!btn) return;
-
-      // find which media item was clicked
-      const mediaTitleParent = btn.parentNode.parentNode;
-      const mediaTitle = mediaTitleParent.children[2].textContent;
-
-      // change bookmarked status
-      for (let item of val) {
-        if (mediaTitle === item.title) {
-          if (!item.isBookmarked) {
-            btn.classList.remove("badge__bookmark-empty");
-            btn.classList.add("badge__bookmark-full");
-            item.isBookmarked = true;
-            localStorage.setItem("media", JSON.stringify(val));
-          } else if (item.isBookmarked) {
-            btn.classList.remove("badge__bookmark-full");
-            btn.classList.add("badge__bookmark-empty");
-            item.isBookmarked = false;
-            localStorage.setItem("media", JSON.stringify(val));
-          }
-        }
-      }
-    },
-    { passive: true }
-  );
-}
-
-// Create a function to bookmark the recommended media
-
-function bookmarkRecommendedMedia(val) {
-  document.querySelector(".recommended").addEventListener(
+function bookmarkMedia(val, className) {
+  document.querySelector(className).addEventListener(
     "click",
     (e) => {
       const btn = e.target.closest("button.icon-bookmark");
