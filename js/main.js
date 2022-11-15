@@ -1,7 +1,7 @@
 /* Strict Mode */
 "use strict";
 
-//FIXME:
+//FIXME: on first ever page load, media items do not get populated until the page has been refreshed at least once
 
 window.onload = initData();
 
@@ -174,3 +174,5 @@ function bookmarkTrendingMedia(val) {
     { passive: true }
   );
 }
+
+// TODO: you need to now enable the bookmark feature on the recommended media items

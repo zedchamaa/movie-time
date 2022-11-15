@@ -120,8 +120,6 @@ function bookmarkedTvSeries(val) {
   document.querySelector(".bookmarked-tv-series").innerHTML = output;
 }
 
-// TODO: continue from here, you still need to hide the movie once the bookmark icon has been clicked
-
 // Change bookmark status of the clicked media item and remove it
 
 function removeMoviesBookmarks(val) {
@@ -143,6 +141,7 @@ function removeMoviesBookmarks(val) {
             btn.classList.add("badge__bookmark-empty");
             item.isBookmarked = false;
             localStorage.setItem("media", JSON.stringify(val));
+            mediaTitleParent.classList.add("hide");
           }
         }
       }
@@ -170,6 +169,7 @@ function removeTvSeriesBookmarks(val) {
             btn.classList.add("badge__bookmark-empty");
             item.isBookmarked = false;
             localStorage.setItem("media", JSON.stringify(val));
+            mediaTitleParent.classList.add("hide");
           }
         }
       }
