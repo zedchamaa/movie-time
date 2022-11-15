@@ -515,7 +515,7 @@ button {
   grid-area: main-three;
   grid-auto-columns: minmax(24rem, 24rem);
   grid-auto-flow: column;
-  grid-auto-rows: minmax(27rem, 27rem);
+  grid-auto-rows: minmax(18rem, 18rem);
   margin-left: 2rem;
   margin-right: 1rem;
   overflow-x: auto;
@@ -534,6 +534,7 @@ button {
 @media screen and (min-width: 768px) {
   .media-scroller {
     grid-auto-columns: minmax(47rem, 47rem);
+    grid-auto-rows: minmax(31rem, 31rem);
   }
   .box {
     width: 47rem;
@@ -544,7 +545,23 @@ button {
 @media screen and (min-width: 1024px) {
   .media-scroller {
     margin-left: 0;
+    grid-auto-rows: minmax(27rem, 27rem);
   }
+}
+
+/* Footer */
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: #edc7b7;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 0;
 }
 
 /* Miscellaneous */
