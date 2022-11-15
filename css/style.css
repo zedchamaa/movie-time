@@ -587,15 +587,19 @@ footer {
 
 .trending-title {
   padding-left: 2rem;
+  margin-top: 4rem;
 }
 .category-title {
   padding-left: 2rem;
+  margin-top: 4rem;
 }
 .bookmarked-movies-title {
   padding-left: 2rem;
+  margin-top: 4rem;
 }
 .bookmarked-tv-series-title {
   padding-left: 2rem;
+  margin-top: 4rem;
 }
 
 .hide {
