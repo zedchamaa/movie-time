@@ -281,7 +281,6 @@ button {
   .main-container {
     display: grid;
     gap: 4rem;
-    grid-template: 1fr 1fr auto-fit 1fr auto-fit / 0.5fr 4fr;
     grid-template-areas:
       "sidebar main-one"
       "sidebar main-two"
