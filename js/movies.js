@@ -7,6 +7,7 @@ outData(data);
 
 function outData(val) {
   filterMovies(val);
+  bookmarkMedia(val);
 }
 
 function filterMovies(val) {
@@ -17,8 +18,12 @@ function filterMovies(val) {
     if (item.category === "Movie") {
       let imageSize;
       let categoryIcon;
+      let bookmarkedRule;
       const movieIcon = "/assets/icon-category-movie.svg";
       const tvSeriesIcon = "/assets/icon-category-tv.svg";
+
+      const bookmarked = "badge__bookmark-full";
+      const notBookmarked = "badge__bookmark-empty";
 
       if (windowWidth >= 1024) {
         imageSize = item.thumbnail.regular.large;
@@ -31,11 +36,14 @@ function filterMovies(val) {
       if (item.category === "Movie") categoryIcon = movieIcon;
       if (item.category === "TV Series") categoryIcon = tvSeriesIcon;
 
+      if (item.isBookmarked) bookmarkedRule = bookmarked;
+      if (!item.isBookmarked) bookmarkedRule = notBookmarked;
+
       output += `
         <div class="media-card-general">
         <div class="thumbnail">
           <img src="${imageSize}" alt="${item.title}" />
-          <button class="badge icon-bookmark badge__bookmark-empty"></button>
+          <button class="badge icon-bookmark ${bookmarkedRule}"></button>
         </div>
         <ul class="list list--inner">
           <li>${item.year}</li>
@@ -54,4 +62,36 @@ function filterMovies(val) {
     }
   }
   document.querySelector(".movies").innerHTML = output;
+}
+
+function bookmarkMedia(val) {
+  document.querySelector(".movies").addEventListener(
+    "click",
+    (e) => {
+      const btn = e.target.closest("button.icon-bookmark");
+      if (!btn) return;
+
+      // find which media item was clicked
+      const mediaTitleParent = btn.parentNode.parentNode;
+      const mediaTitle = mediaTitleParent.children[2].textContent;
+
+      // change bookmarked status
+      for (let item of val) {
+        if (mediaTitle === item.title) {
+          if (!item.isBookmarked) {
+            btn.classList.remove("badge__bookmark-empty");
+            btn.classList.add("badge__bookmark-full");
+            item.isBookmarked = true;
+            localStorage.setItem("media", JSON.stringify(val));
+          } else if (item.isBookmarked) {
+            btn.classList.remove("badge__bookmark-full");
+            btn.classList.add("badge__bookmark-empty");
+            item.isBookmarked = false;
+            localStorage.setItem("media", JSON.stringify(val));
+          }
+        }
+      }
+    },
+    { passive: true }
+  );
 }
