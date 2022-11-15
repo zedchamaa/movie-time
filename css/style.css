@@ -515,6 +515,7 @@ button {
   grid-area: main-three;
   grid-auto-columns: minmax(24rem, 24rem);
   grid-auto-flow: column;
+  grid-auto-rows: minmax(27rem, 27rem);
   margin-left: 2rem;
   margin-right: 1rem;
   overflow-x: auto;
