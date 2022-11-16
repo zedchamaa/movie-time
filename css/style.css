@@ -425,6 +425,11 @@ button {
   background-repeat: no-repeat;
 }
 
+.badge__bookmark-empty:hover {
+  background-color: var(--color-body);
+  background-image: url(/assets/icon-bookmark-hover.svg);
+}
+
 .badge__bookmark-full {
   background-image: url(/assets/icon-bookmark-full.svg);
   background-position: center;
