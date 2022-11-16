@@ -46,6 +46,14 @@ function filterTvSeries(val) {
         <div class="thumbnail">
           <img src="${imageSize}" alt="${item.title}" />
           <button class="badge icon-bookmark ${bookmarkedRule}"></button>
+          <button class="play hide">
+          <img
+            class="icon"
+            src="/assets/icon-play.svg"
+            alt="Play Media"
+          />
+          <h3>Play</h3>
+        </button>
         </div>
         <ul class="list list--inner">
           <li>${item.year}</li>

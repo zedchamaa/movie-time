@@ -79,6 +79,14 @@ function populateTrendingItems(val) {
         <div class="thumbnail thumbnail--trending">
           <img src="${imageSize}" alt="${item.title}" />
           <button class="badge-trending icon-bookmark ${bookmarkedRule}"></button>
+          <button class="play play-trending hide">
+            <img
+              class="icon"
+              src="/assets/icon-play.svg"
+              alt="Play Media"
+            />
+            <h3>Play</h3>
+          </button>
         </div>
         <ul class="list list--inner-trending">
           <li>${item.year}</li>
@@ -132,6 +140,14 @@ function populateRecommendedItems(val) {
       <div class="thumbnail">
         <img src="${imageSize}" alt="${item.title}" />
         <button class="badge icon-bookmark ${bookmarkedRule}"></button>
+        <button class="play hide">
+          <img
+            class="icon"
+            src="/assets/icon-play.svg"
+            alt="Play Media"
+          />
+          <h3>Play</h3>
+        </button>
       </div>
       <ul class="list list--inner">
         <li>${item.year}</li>
