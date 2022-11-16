@@ -5,6 +5,8 @@ const data = JSON.parse(localStorage.getItem("media"));
 
 outData(data);
 
+changeNavFillColor();
+
 function outData(val) {
   filterMovies(val);
   bookmarkMedia(val, ".movies");
@@ -94,4 +96,17 @@ function bookmarkMedia(val, className) {
     },
     { passive: true }
   );
+}
+
+// Change nav icon fill color when relevant page is selected
+
+function changeNavFillColor() {
+  const activePage = window.location.pathname;
+  const navLinks = document.querySelectorAll("nav a");
+
+  navLinks.forEach((link) => {
+    if (link.href.includes(`${activePage}`)) {
+      link.firstChild.classList.add("menu-svg-active");
+    }
+  });
 }

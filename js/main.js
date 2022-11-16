@@ -37,6 +37,8 @@ function initData() {
   outData(data);
 }
 
+changeNavFillColor();
+
 function outData(val) {
   populateRecommendedItems(val);
   populateTrendingItems(val);
@@ -181,4 +183,17 @@ function bookmarkMedia(val, className) {
     },
     { passive: true }
   );
+}
+
+// Change nav icon fill color when relevant page is selected
+
+function changeNavFillColor() {
+  const activePage = window.location.pathname;
+  const navLinks = document.querySelectorAll("nav a");
+
+  navLinks.forEach((link) => {
+    if (link.href.includes(`${activePage}`)) {
+      link.firstChild.classList.add("menu-svg-active");
+    }
+  });
 }
