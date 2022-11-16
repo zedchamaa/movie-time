@@ -89,6 +89,26 @@ h4 {
   }
 }
 
+/* SVG Icons */
+
+/* using #5a698f as default fill color */
+.menu-svg {
+  filter: invert(40%) sepia(9%) saturate(1722%) hue-rotate(185deg)
+    brightness(98%) contrast(89%);
+}
+
+/* using #fc4747 on hover */
+.menu-svg:hover {
+  filter: invert(62%) sepia(78%) saturate(5188%) hue-rotate(330deg)
+    brightness(98%) contrast(121%);
+}
+
+/* using #fff when the nav item is active */
+.menu-svg-active {
+  filter: invert(100%) sepia(0%) saturate(7473%) hue-rotate(26deg)
+    brightness(98%) contrast(106%);
+}
+
 /* Buttons */
 
 button {
