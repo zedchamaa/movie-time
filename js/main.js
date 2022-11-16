@@ -40,62 +40,10 @@ function initData() {
 changeNavFillColor();
 
 function outData(val) {
-  populateRecommendedItems(val);
   populateTrendingItems(val);
+  populateRecommendedItems(val);
   bookmarkMedia(val, ".media-scroller");
   bookmarkMedia(val, ".recommended");
-}
-
-function populateRecommendedItems(val) {
-  let output = "";
-  const windowWidth = window.innerWidth;
-
-  for (let item of val) {
-    let imageSize;
-    let categoryIcon;
-    let bookmarkedRule;
-    const movieIcon = "/assets/icon-category-movie.svg";
-    const tvSeriesIcon = "/assets/icon-category-tv.svg";
-
-    const bookmarked = "badge__bookmark-full";
-    const notBookmarked = "badge__bookmark-empty";
-
-    if (windowWidth >= 1024) {
-      imageSize = item.thumbnail.regular.large;
-    } else if (windowWidth >= 768) {
-      imageSize = item.thumbnail.regular.medium;
-    } else {
-      imageSize = item.thumbnail.regular.small;
-    }
-
-    if (item.category === "Movie") categoryIcon = movieIcon;
-    if (item.category === "TV Series") categoryIcon = tvSeriesIcon;
-
-    if (item.isBookmarked) bookmarkedRule = bookmarked;
-    if (!item.isBookmarked) bookmarkedRule = notBookmarked;
-
-    output += `
-      <div class="media-card-general">
-      <div class="thumbnail">
-        <img src="${imageSize}" alt="${item.title}" />
-        <button class="badge icon-bookmark ${bookmarkedRule}"></button>
-      </div>
-      <ul class="list list--inner">
-        <li>${item.year}</li>
-        <li>&middot;</li>
-        <li>
-          <img class="icon--small" src="${categoryIcon}" alt="${item.category}" />
-          ${item.category}
-        </li>
-        <li>&middot;</li>
-        <li>${item.rating}</li>
-      </ul>
-      <h3>${item.title}</h3>
-      </div>
-    </div>
-    `;
-  }
-  document.querySelector(".recommended").innerHTML = output;
 }
 
 function populateTrendingItems(val) {
@@ -149,6 +97,58 @@ function populateTrendingItems(val) {
     }
   }
   document.querySelector(".media-scroller").innerHTML = output;
+}
+
+function populateRecommendedItems(val) {
+  let output = "";
+  const windowWidth = window.innerWidth;
+
+  for (let item of val) {
+    let imageSize;
+    let categoryIcon;
+    let bookmarkedRule;
+    const movieIcon = "/assets/icon-category-movie.svg";
+    const tvSeriesIcon = "/assets/icon-category-tv.svg";
+
+    const bookmarked = "badge__bookmark-full";
+    const notBookmarked = "badge__bookmark-empty";
+
+    if (windowWidth >= 1024) {
+      imageSize = item.thumbnail.regular.large;
+    } else if (windowWidth >= 768) {
+      imageSize = item.thumbnail.regular.medium;
+    } else {
+      imageSize = item.thumbnail.regular.small;
+    }
+
+    if (item.category === "Movie") categoryIcon = movieIcon;
+    if (item.category === "TV Series") categoryIcon = tvSeriesIcon;
+
+    if (item.isBookmarked) bookmarkedRule = bookmarked;
+    if (!item.isBookmarked) bookmarkedRule = notBookmarked;
+
+    output += `
+      <div class="media-card-general">
+      <div class="thumbnail">
+        <img src="${imageSize}" alt="${item.title}" />
+        <button class="badge icon-bookmark ${bookmarkedRule}"></button>
+      </div>
+      <ul class="list list--inner">
+        <li>${item.year}</li>
+        <li>&middot;</li>
+        <li>
+          <img class="icon--small" src="${categoryIcon}" alt="${item.category}" />
+          ${item.category}
+        </li>
+        <li>&middot;</li>
+        <li>${item.rating}</li>
+      </ul>
+      <h3>${item.title}</h3>
+      </div>
+    </div>
+    `;
+  }
+  document.querySelector(".recommended").innerHTML = output;
 }
 
 // Bookmark media items
