@@ -643,6 +643,10 @@ footer {
 
 /* Miscellaneous */
 
+img {
+  cursor: pointer;
+}
+
 .trending-title {
   padding-left: 2rem;
   margin-top: 4rem;
