@@ -44,6 +44,7 @@ function outData(val) {
   populateRecommendedItems(val);
   bookmarkMedia(val, ".media-scroller");
   bookmarkMedia(val, ".recommended");
+  displayPlayButton(".media-scroller");
 }
 
 function populateTrendingItems(val) {
@@ -72,6 +73,8 @@ function populateTrendingItems(val) {
 
       if (item.isBookmarked) bookmarkedRule = bookmarked;
       if (!item.isBookmarked) bookmarkedRule = notBookmarked;
+
+      // TODO: add hide to <button class="play play-trending"> on line 85
 
       output += `
       <div class="box">
@@ -212,4 +215,30 @@ function changeNavFillColor() {
       link.firstChild.classList.add("menu-svg-active");
     }
   });
+}
+
+// Display play button when hovering over a trending media item
+
+function displayPlayButton(className) {
+  const mediaCardTrending = document.querySelector(className);
+  mediaCardTrending.addEventListener("mouseenter", removeHide);
+  mediaCardTrending.addEventListener("mouseleave", addHide);
+}
+
+function removeHide(event) {
+  const mediaImage = event.target.matches("img");
+  if (!mediaImage) return;
+  const btn = event.target.parentNode.children[2];
+  if (mediaImage) {
+    btn.classList.remove("hide");
+  }
+}
+
+function addHide(event) {
+  const mediaImage = event.target.matches("img");
+  if (!mediaImage) return;
+  const btn = event.target.parentNode.children[2];
+  if (mediaImage) {
+    btn.classList.add("hide");
+  }
 }
