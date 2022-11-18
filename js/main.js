@@ -74,15 +74,13 @@ function populateTrendingItems(val) {
       if (item.isBookmarked) bookmarkedRule = bookmarked;
       if (!item.isBookmarked) bookmarkedRule = notBookmarked;
 
-      // TODO: add hide to <button class="play play-trending"> on line 85
-
       output += `
       <div class="box">
       <div class="media-card-trending box">
         <div class="thumbnail thumbnail--trending">
           <img src="${imageSize}" alt="${item.title}" />
           <button class="badge-trending icon-bookmark ${bookmarkedRule}"></button>
-          <button class="play play-trending hide">
+          <button class="play play-trending">
             <img
               class="icon"
               src="/assets/icon-play.svg"
@@ -143,14 +141,14 @@ function populateRecommendedItems(val) {
       <div class="thumbnail">
         <img src="${imageSize}" alt="${item.title}" />
         <button class="badge icon-bookmark ${bookmarkedRule}"></button>
-        <button class="play hide">
-          <img
-            class="icon"
-            src="/assets/icon-play.svg"
-            alt="Play Media"
-          />
-          <h3>Play</h3>
-        </button>
+        <button class="play play-general">
+        <img
+          class="icon"
+          src="/assets/icon-play.svg"
+          alt="Play Media"
+        />
+        <h3>Play</h3>
+      </button>
       </div>
       <ul class="list list--inner">
         <li>${item.year}</li>
@@ -215,30 +213,4 @@ function changeNavFillColor() {
       link.firstChild.classList.add("menu-svg-active");
     }
   });
-}
-
-// Display play button when hovering over a trending media item
-
-function displayPlayButton(className) {
-  const mediaCardTrending = document.querySelector(className);
-  mediaCardTrending.addEventListener("mouseenter", removeHide);
-  mediaCardTrending.addEventListener("mouseleave", addHide);
-}
-
-function removeHide(event) {
-  const mediaImage = event.target.matches("img");
-  if (!mediaImage) return;
-  const btn = event.target.parentNode.children[2];
-  if (mediaImage) {
-    btn.classList.remove("hide");
-  }
-}
-
-function addHide(event) {
-  const mediaImage = event.target.matches("img");
-  if (!mediaImage) return;
-  const btn = event.target.parentNode.children[2];
-  if (mediaImage) {
-    btn.classList.add("hide");
-  }
 }
