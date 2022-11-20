@@ -133,6 +133,12 @@ play-trending {
   .media-card-general:hover button.play-general {
     display: flex;
   }
+  .media-card-trending:hover img {
+    filter: brightness(50%);
+  }
+  .media-card-general:hover img {
+    filter: brightness(50%);
+  }
   .play {
     align-content: space-around;
     align-items: center;
