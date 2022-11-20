@@ -133,16 +133,16 @@ play-trending {
   .media-card-general:hover button.play-general {
     display: flex;
   }
-  .media-card-trending:hover img {
-    filter: brightness(50%);
+  .media-card-trending:hover div.thumbnail {
+    filter: brightness(70%);
   }
-  .media-card-general:hover img {
-    filter: brightness(50%);
+  .media-card-general:hover div.thumbnail {
+    filter: brightness(70%);
   }
   .play {
     align-content: space-around;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.3);
     border-radius: 3rem;
     border: none;
     color: var(--color-body);
