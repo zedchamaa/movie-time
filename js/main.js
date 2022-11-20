@@ -44,7 +44,6 @@ function outData(val) {
   populateRecommendedItems(val);
   bookmarkMedia(val, ".media-scroller");
   bookmarkMedia(val, ".recommended");
-  displayPlayButton(".media-scroller");
 }
 
 function populateTrendingItems(val) {
