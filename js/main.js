@@ -34,7 +34,8 @@ function initData() {
     }
   }
 
-  outData(data);
+  // outData(data); // TODO: delete?
+  filterData(data);
 }
 
 changeNavFillColor();
@@ -213,3 +214,39 @@ function changeNavFillColor() {
     }
   });
 }
+
+// Search for movies or tv series
+
+function filterData(data) {
+  // const searchInput = document.getElementById("search");
+
+  for (let item of data) {
+    console.log(item.title);
+
+    data = data.filter((item) => item.title === "Beyond Earth");
+
+    // if (searchInput === item.title) {
+    //   data = data.filter((item) => item === searchInput);
+    //   outData(data);
+    //   console.log(item);
+    //   console.log(data);
+    outData(data);
+  }
+}
+
+// const searchInput = document.getElementById("search");
+
+// searchInput.addEventListener("input", (event) => {
+//   const inputValue = event.target.value;
+
+//   console.log(inputValue);
+
+//   for (const item of data) {
+//     if (inputValue === item.title) {
+//       data.filter(item.title);
+//       outData(data);
+//     }
+
+//     // console.log(item.title);
+//   }
+// });
