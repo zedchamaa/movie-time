@@ -690,6 +690,23 @@ img {
   display: none;
 }
 
+.announcement {
+  color: var(--color-accent);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 1rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .announcement {
+    font-size: 1.5rem;
+  }
+}
+
 @media screen and (min-width: 1024px) {
   .trending-title {
     display: block;
@@ -708,5 +725,8 @@ img {
     display: block;
     grid-area: main-four;
     padding-left: 0;
+  }
+  .announcement {
+    font-size: 1.8rem;
   }
 }
