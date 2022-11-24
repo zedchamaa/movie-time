@@ -545,7 +545,7 @@ play-trending {
   margin-top: 3rem;
   padding-left: 2rem;
   padding-top: 2rem;
-  width: 25.7rem;
+  width: 32rem;
 }
 
 .search-bar input {
@@ -555,7 +555,7 @@ play-trending {
   font-size: 1.6rem;
   height: 2rem;
   margin-left: 1.5rem;
-  width: 21.7rem;
+  width: 32rem;
 }
 
 .search-bar input:focus {
