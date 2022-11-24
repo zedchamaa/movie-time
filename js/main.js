@@ -1,8 +1,6 @@
 /* Strict Mode */
 "use strict";
 
-//FIXME: on first ever page load, media items do not get populated until the page has been refreshed at least once
-
 window.onload = initData();
 
 function initData() {
@@ -33,8 +31,6 @@ function initData() {
       console.log(e);
     }
   }
-
-  // outData(data); // TODO: delete?
   filterData(data);
 }
 
@@ -218,35 +214,23 @@ function changeNavFillColor() {
 // Search for movies or tv series
 
 function filterData(data) {
-  // const searchInput = document.getElementById("search");
+  outData(data);
 
-  for (let item of data) {
-    console.log(item.title);
+  const searchInput = document.getElementById("search");
 
-    data = data.filter((item) => item.title === "Beyond Earth");
+  searchInput.addEventListener("input", (event) => {
+    let inputValue = event.target.value;
 
-    // if (searchInput === item.title) {
-    //   data = data.filter((item) => item === searchInput);
-    //   outData(data);
-    //   console.log(item);
-    //   console.log(data);
-    outData(data);
-  }
+    if (inputValue && inputValue.trim().length > 0) {
+      inputValue = inputValue.trim().toLowerCase();
+
+      const filteredData = data.filter((item) => {
+        const itemTitle = item.title.toLowerCase();
+        return itemTitle.includes(inputValue);
+      });
+      outData(filteredData);
+    } else {
+      outData(data);
+    }
+  });
 }
-
-// const searchInput = document.getElementById("search");
-
-// searchInput.addEventListener("input", (event) => {
-//   const inputValue = event.target.value;
-
-//   console.log(inputValue);
-
-//   for (const item of data) {
-//     if (inputValue === item.title) {
-//       data.filter(item.title);
-//       outData(data);
-//     }
-
-//     // console.log(item.title);
-//   }
-// });
