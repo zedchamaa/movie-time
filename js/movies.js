@@ -3,7 +3,7 @@
 
 const data = JSON.parse(localStorage.getItem("media"));
 
-outData(data);
+filterData(data);
 
 changeNavFillColor();
 
@@ -115,6 +115,30 @@ function changeNavFillColor() {
   navLinks.forEach((link) => {
     if (link.href.includes(`${activePage}`)) {
       link.firstChild.classList.add("menu-svg-active");
+    }
+  });
+}
+
+// Search for movies
+
+function filterData(data) {
+  outData(data);
+
+  const searchInput = document.getElementById("search");
+
+  searchInput.addEventListener("input", (event) => {
+    let inputValue = event.target.value;
+
+    if (inputValue && inputValue.trim().length > 0) {
+      inputValue = inputValue.trim().toLowerCase();
+
+      const filteredData = data.filter((item) => {
+        const itemTitle = item.title.toLowerCase();
+        return itemTitle.includes(inputValue);
+      });
+      outData(filteredData);
+    } else {
+      outData(data);
     }
   });
 }
