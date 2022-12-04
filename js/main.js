@@ -1,15 +1,15 @@
 /* Strict Mode */
-"use strict";
+'use strict';
 
 window.onload = initData();
 
 function initData() {
   let data = [];
-  const localStorageData = localStorage.getItem("media");
+  const localStorageData = localStorage.getItem('media');
 
   if (!localStorageData) {
     // fetch media data from json
-    const url = "./data/data.json";
+    const url = './data/data.json';
     fetch(url)
       .then((response) => response.json())
       .then((jsonData) => {
@@ -17,7 +17,7 @@ function initData() {
       });
     // save to local storage
     function saveToLocalStorage(jsonData) {
-      localStorage.setItem("media", JSON.stringify(jsonData));
+      localStorage.setItem('media', JSON.stringify(jsonData));
       saveToDataArray();
     }
     // save to data array
@@ -39,12 +39,12 @@ changeNavFillColor();
 function outData(val) {
   populateTrendingItems(val);
   populateRecommendedItems(val);
-  bookmarkMedia(val, ".media-scroller");
-  bookmarkMedia(val, ".recommended");
+  bookmarkMedia(val, '.media-scroller');
+  bookmarkMedia(val, '.recommended');
 }
 
 function populateTrendingItems(val) {
-  let output = "";
+  let output = '';
   const windowWidth = window.innerWidth;
 
   for (let item of val) {
@@ -52,11 +52,11 @@ function populateTrendingItems(val) {
       let imageSize;
       let categoryIcon;
       let bookmarkedRule;
-      const movieIcon = "/assets/icon-category-movie.svg";
-      const tvSeriesIcon = "/assets/icon-category-tv.svg";
+      const movieIcon = '/assets/icon-category-movie.svg';
+      const tvSeriesIcon = '/assets/icon-category-tv.svg';
 
-      const bookmarked = "badge__bookmark-full";
-      const notBookmarked = "badge__bookmark-empty";
+      const bookmarked = 'badge__bookmark-full';
+      const notBookmarked = 'badge__bookmark-empty';
 
       if (windowWidth >= 1024) {
         imageSize = item.thumbnail.trending.large;
@@ -64,8 +64,8 @@ function populateTrendingItems(val) {
         imageSize = item.thumbnail.trending.small;
       }
 
-      if (item.category === "Movie") categoryIcon = movieIcon;
-      if (item.category === "TV Series") categoryIcon = tvSeriesIcon;
+      if (item.category === 'Movie') categoryIcon = movieIcon;
+      if (item.category === 'TV Series') categoryIcon = tvSeriesIcon;
 
       if (item.isBookmarked) bookmarkedRule = bookmarked;
       if (!item.isBookmarked) bookmarkedRule = notBookmarked;
@@ -101,22 +101,22 @@ function populateTrendingItems(val) {
       `;
     }
   }
-  document.querySelector(".media-scroller").innerHTML = output;
+  document.querySelector('.media-scroller').innerHTML = output;
 }
 
 function populateRecommendedItems(val) {
-  let output = "";
+  let output = '';
   const windowWidth = window.innerWidth;
 
   for (let item of val) {
     let imageSize;
     let categoryIcon;
     let bookmarkedRule;
-    const movieIcon = "/assets/icon-category-movie.svg";
-    const tvSeriesIcon = "/assets/icon-category-tv.svg";
+    const movieIcon = '/assets/icon-category-movie.svg';
+    const tvSeriesIcon = '/assets/icon-category-tv.svg';
 
-    const bookmarked = "badge__bookmark-full";
-    const notBookmarked = "badge__bookmark-empty";
+    const bookmarked = 'badge__bookmark-full';
+    const notBookmarked = 'badge__bookmark-empty';
 
     if (windowWidth >= 1024) {
       imageSize = item.thumbnail.regular.large;
@@ -126,8 +126,8 @@ function populateRecommendedItems(val) {
       imageSize = item.thumbnail.regular.small;
     }
 
-    if (item.category === "Movie") categoryIcon = movieIcon;
-    if (item.category === "TV Series") categoryIcon = tvSeriesIcon;
+    if (item.category === 'Movie') categoryIcon = movieIcon;
+    if (item.category === 'TV Series') categoryIcon = tvSeriesIcon;
 
     if (item.isBookmarked) bookmarkedRule = bookmarked;
     if (!item.isBookmarked) bookmarkedRule = notBookmarked;
@@ -161,16 +161,16 @@ function populateRecommendedItems(val) {
     </div>
     `;
   }
-  document.querySelector(".recommended").innerHTML = output;
+  document.querySelector('.recommended').innerHTML = output;
 }
 
 // Bookmark media items
 
 function bookmarkMedia(val, className) {
   document.querySelector(className).addEventListener(
-    "click",
+    'click',
     (e) => {
-      const btn = e.target.closest("button.icon-bookmark");
+      const btn = e.target.closest('button.icon-bookmark');
       if (!btn) return;
 
       // find which media item was clicked
@@ -181,15 +181,15 @@ function bookmarkMedia(val, className) {
       for (let item of val) {
         if (mediaTitle === item.title) {
           if (!item.isBookmarked) {
-            btn.classList.remove("badge__bookmark-empty");
-            btn.classList.add("badge__bookmark-full");
+            btn.classList.remove('badge__bookmark-empty');
+            btn.classList.add('badge__bookmark-full');
             item.isBookmarked = true;
-            localStorage.setItem("media", JSON.stringify(val));
+            localStorage.setItem('media', JSON.stringify(val));
           } else if (item.isBookmarked) {
-            btn.classList.remove("badge__bookmark-full");
-            btn.classList.add("badge__bookmark-empty");
+            btn.classList.remove('badge__bookmark-full');
+            btn.classList.add('badge__bookmark-empty');
             item.isBookmarked = false;
-            localStorage.setItem("media", JSON.stringify(val));
+            localStorage.setItem('media', JSON.stringify(val));
           }
         }
       }
@@ -202,11 +202,11 @@ function bookmarkMedia(val, className) {
 
 function changeNavFillColor() {
   const activePage = window.location.pathname;
-  const navLinks = document.querySelectorAll("nav a");
+  const navLinks = document.querySelectorAll('nav a');
 
   navLinks.forEach((link) => {
     if (link.href.includes(`${activePage}`)) {
-      link.firstChild.classList.add("menu-svg-active");
+      link.firstChild.classList.add('menu-svg-active');
     }
   });
 }
@@ -216,9 +216,9 @@ function changeNavFillColor() {
 function filterData(data) {
   outData(data);
 
-  const searchInput = document.getElementById("search");
+  const searchInput = document.getElementById('search');
 
-  searchInput.addEventListener("input", (event) => {
+  searchInput.addEventListener('input', (event) => {
     let inputValue = event.target.value;
 
     if (inputValue && inputValue.trim().length > 0) {
