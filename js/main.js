@@ -14,15 +14,12 @@ function initData() {
       .then((response) => response.json())
       .then((jsonData) => {
         saveToLocalStorage(jsonData);
+        data = jsonData;
+        filterData(data);
       });
     // save to local storage
     function saveToLocalStorage(jsonData) {
       localStorage.setItem('media', JSON.stringify(jsonData));
-      saveToDataArray();
-    }
-    // save to data array
-    function saveToDataArray() {
-      data = localStorageData;
     }
   } else {
     try {
@@ -30,8 +27,8 @@ function initData() {
     } catch (e) {
       console.log(e);
     }
+    filterData(data);
   }
-  filterData(data);
 }
 
 changeNavFillColor();
